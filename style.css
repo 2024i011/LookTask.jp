@@ -1,0 +1,46 @@
+/* :root, body[data-theme="light"], body ... 既存のスタイルは変更なし */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root { --bg-color: #111827; --card-bg: #1f2937; --text-color: #f3f4f6; --text-muted-color: #9ca3af; --border-color: #374151; --input-bg: #1f2937; --item-bg: #374151; --item-bg-hover: #4b5563; }
+body[data-theme="light"] { --bg-color: #f3f4f6; --card-bg: #ffffff; --text-color: #111827; --text-muted-color: #6b7280; --border-color: #d1d5db; --input-bg: #e5e7eb; --item-bg: #f3f4f6; --item-bg-hover: #e5e7eb; }
+body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s, color 0.3s; }
+#current-date, #settings-btn, #theme-toggle-btn { color: var(--text-muted-color); }
+.card { background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); transition: all 0.3s ease; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-5px); }
+.task-item, .event-item { display: flex; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
+.task-item:last-child, .event-item:last-child { border-bottom: none; }
+.task-item.completed span { text-decoration: line-through; color: var(--text-muted-color); }
+.delete-btn { background: none; border: none; color: var(--text-muted-color); cursor: pointer; transition: color 0.2s ease; }
+.delete-btn:hover { color: #ef4444; }
+.notification-tab { padding: 0.5rem 1rem; cursor: pointer; border-radius: 0.5rem; transition: background-color 0.2s ease; font-weight: 500; }
+.notification-tab.active { background-color: #3b82f6; color: white; }
+.notification-tab:not(.active) { background-color: var(--item-bg); color: var(--text-color); }
+.notification-content .block { background-color: var(--item-bg); transition: background-color 0.2s; }
+.notification-content .block:hover { background-color: var(--item-bg-hover); }
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 50; visibility: hidden; opacity: 0; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.modal-overlay.visible { visibility: visible; opacity: 1; }
+.modal-content { background-color: var(--card-bg); padding: 2rem; border-radius: 0.75rem; width: 90%; max-width: 500px; }
+.hidden { display: none; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--card-bg); }
+::-webkit-scrollbar-thumb { background: var(--item-bg-hover); border-radius: 4px; }
+/* ▼ フローティングボタンとウィジェット設定のスタイル ▼ */
+#add-tab-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 40;
+}
+.widget-toggle-label {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--item-bg);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.widget-toggle-label input {
+    margin-right: 0.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+/* ▲ ここまで ▲ */
